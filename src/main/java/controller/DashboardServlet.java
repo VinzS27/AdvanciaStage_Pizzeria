@@ -61,7 +61,7 @@ public class DashboardServlet extends HttpServlet {
 		pizzeriaDao.savePizza(nomePizza, utente, impastoId, ingredientiId);
 
 		request.setAttribute("impasti", pizzeriaDao.findImpasto());
-		request.setAttribute("ingredienti", pizzeriaDao.findIngrediente());
+		request.setAttribute("ingredienti", PizzeriaDAO.findIngrediente());
 	}
 
 	// Cancella pizza esistente
@@ -75,10 +75,10 @@ public class DashboardServlet extends HttpServlet {
 
 		pizzeriaDao.deletePizza(id, utente);
 
-		utente.setPizze(pizzeriaDao.findPizzaByUser(utente.getId()));
+		utente.setPizze(PizzeriaDAO.findPizzaByUser(utente.getId()));
 
 		request.setAttribute("impasti", pizzeriaDao.findImpasto());
-		request.setAttribute("ingredienti", pizzeriaDao.findIngrediente());
+		request.setAttribute("ingredienti", PizzeriaDAO.findIngrediente());
 	}
 
 	// Aggiorna pizza esistente
@@ -88,11 +88,11 @@ public class DashboardServlet extends HttpServlet {
 		PizzeriaDAO pizzeriaDao = new PizzeriaDAO();
 
 		int id_pizza = Integer.parseInt(request.getParameter("id_pizza"));
-		Pizza pizza = pizzeriaDao.findPizzaById(id_pizza);
+		Pizza pizza = PizzeriaDAO.findPizzaById(id_pizza);
 
 		request.setAttribute("updatePizza", pizza);
 		request.setAttribute("impasti", pizzeriaDao.findImpasto());
-		request.setAttribute("ingredienti", pizzeriaDao.findIngrediente());
+		request.setAttribute("ingredienti", PizzeriaDAO.findIngrediente());
 
 		request.getRequestDispatcher("update.jsp").forward(request, response);
 	}

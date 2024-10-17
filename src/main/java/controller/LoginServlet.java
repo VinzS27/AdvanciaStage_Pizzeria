@@ -40,7 +40,7 @@ public class LoginServlet extends HttpServlet {
 		Utente utente = pizzeriaDAO.authenticate(username, password);
 		if (utente != null) {
 			impasti = pizzeriaDAO.findImpasto();
-			ingredienti = pizzeriaDAO.findIngrediente();
+			ingredienti = PizzeriaDAO.findIngrediente();
 			
 			request.getSession().setAttribute("utente", utente);
 			request.setAttribute("impasti", impasti);

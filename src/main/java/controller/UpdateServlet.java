@@ -56,10 +56,10 @@ public class UpdateServlet extends HttpServlet {
 
 		dao.updatePizza(pizza);
 
-		utente.setPizze(dao.findPizzaByUser(utente.getId()));
+		utente.setPizze(PizzeriaDAO.findPizzaByUser(utente.getId()));
 
 		request.setAttribute("impasti", dao.findImpasto());
-		request.setAttribute("ingredienti", dao.findIngrediente());
+		request.setAttribute("ingredienti", PizzeriaDAO.findIngrediente());
 
 		request.getRequestDispatcher("dashboard.jsp").forward(request, response);
 	}

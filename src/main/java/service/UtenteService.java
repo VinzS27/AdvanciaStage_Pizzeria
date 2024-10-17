@@ -33,7 +33,7 @@ public class UtenteService {
 	}
 
 	@POST
-	@Path("/{username}/{password}")
+	@Path("/{username}/{password}") //in generale è meglio usare l'oggetto e passare il parametro con JSON
 	@Produces(MediaType.APPLICATION_JSON)
 	public Utente addUtente(@PathParam("username")String username, @PathParam("password")String password) {
 		return PizzeriaRESTDAO.createUtente(username,password);

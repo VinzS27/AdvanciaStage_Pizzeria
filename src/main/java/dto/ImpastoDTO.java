@@ -1,5 +1,8 @@
 package dto;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "ImpastoDTO")
 public class ImpastoDTO {
 	
 	private int id;

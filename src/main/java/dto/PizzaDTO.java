@@ -2,8 +2,11 @@ package dto;
 
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 import model.Ingrediente;
 
+@XmlRootElement(name = "PizzaDTO")
 public class PizzaDTO {
 	
 	private int id;

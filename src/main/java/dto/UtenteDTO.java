@@ -1,5 +1,8 @@
 package dto;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "UtenteDTO")
 public class UtenteDTO {
 
 	private int id;

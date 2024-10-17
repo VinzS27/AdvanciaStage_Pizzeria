@@ -42,8 +42,8 @@
 		        </tr>
 		    </table>
 	         <p>
-	         	<label for="nomePizza">Nome pizza </label> <input
-				type="text" id="nomePizza" name="nomePizza" required>
+	         	<label for="nomePizza">Nome pizza </label>
+	         	<input type="text" id="nomePizza" name="nomePizza" required>
 				<input type="hidden" name="azioni" value="salvaPizza"> 
 				<input type="submit" value="Salva Pizza">
 	        </p>

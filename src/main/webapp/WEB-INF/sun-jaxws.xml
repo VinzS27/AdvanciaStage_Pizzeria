@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoints xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime"
+	version="2.0">
+	<!-- http://localhost:8080/03_HibernatePizzeria/UtenteServiceSoap?wsdl -->
+	<endpoint name="UtenteServiceSoap"
+		implementation="service.UtenteServiceSoap"
+		url-pattern="/UtenteServiceSoap" />
+	
+	<!-- http://localhost:8080/03_HibernatePizzeria/PizzaServiceSoap?wsdl -->
+	<endpoint name="PizzaServiceSoap"
+		implementation="service.PizzaServiceSoap"
+		url-pattern="/PizzaServiceSoap" />
+		
+	<!-- http://localhost:8080/03_HibernatePizzeria/ImpastoServiceSoap?wsdl -->
+	<endpoint name="ImpastoServiceSoap"
+		implementation="service.ImpastoServiceSoap"
+		url-pattern="/ImpastoServiceSoap" />
+		
+	<!-- http://localhost:8080/03_HibernatePizzeria/IngredienteServiceSoap?wsdl -->
+	<endpoint name="IngredienteServiceSoap"
+		implementation="service.IngredienteServiceSoap"
+		url-pattern="/IngredienteServiceSoap" />
+</endpoints>
