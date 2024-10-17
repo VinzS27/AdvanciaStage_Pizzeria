@@ -8,5 +8,5 @@
 
 <h2>RESTful Endpoints few Examples</h2>
 <p id="description"><b>POST:</b> /api/auth/register.</p>
-<p id="description"><b>POST:</b> /api/auth/login : copy the barer token (ey..) for authorization</p>
-<p id="description"><b>GET:</b> api/impasto</p>
+<p id="description"><b>POST:</b> /api/auth/login : copy the barer token (ey..) for authorization.</p>
+<p id="description"><b>GET:</b> /api/impasto.</p>
