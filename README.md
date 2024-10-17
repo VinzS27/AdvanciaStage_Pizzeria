@@ -1,5 +1,5 @@
 <h1 align="center" id="title">PIZZERIA</h1>
-<h2>Prima Fase</h2>
+<h2>First Step</h2>
 <p id="description"><b>- JPA:</b> Used for managing data persistence.</p>
 <p id="description"><b>- Hibernate:</b> Implementation of JPA to manage object mapping in relational database.</p>
 <p id="description"><b>- Basic CRUD:</b> Creation, reading, updating and deletion of entities managed by JPA and Hibernate.</p>
