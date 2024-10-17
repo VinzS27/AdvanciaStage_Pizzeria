@@ -1,13 +1,14 @@
 package model;
 
 import java.util.List;
+import java.util.Objects;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "utente")
 public class Utente {
-
+	
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,6 +22,14 @@ public class Utente {
 	
 	@OneToMany(mappedBy = "utente", fetch = FetchType.EAGER)
     private List<Pizza> pizze;
+
+	public Utente() {}
+	
+	public Utente(String username, String password) {
+		super();
+		this.username = username;
+		this.password = password;
+	}
 
 	public int getId() {
 		return id;
@@ -59,4 +68,21 @@ public class Utente {
         this.pizze = pizze;
     }
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, username, password, pizze);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Utente other = (Utente) obj;
+		return id == other.id && Objects.equals(password, other.password) && Objects.equals(pizze, other.pizze)
+				&& Objects.equals(username, other.username);
+	}
 }

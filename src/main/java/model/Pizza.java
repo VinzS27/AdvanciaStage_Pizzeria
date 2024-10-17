@@ -25,7 +25,7 @@ public class Pizza {
 
 	@Column(name = "nome")
 	private String nome;
-
+	
 	@ManyToOne
 	@JoinColumn(name = "id_impasto")
 	private Impasto impasto;

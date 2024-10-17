@@ -19,6 +19,12 @@ public class Impasto {
 	@Column(name = "nome")
 	private String nome;
 
+	public Impasto() {}
+	
+	public Impasto(String nome) {
+		this.nome=nome;
+	}
+
 	public int getId() {
 		return id;
 	}

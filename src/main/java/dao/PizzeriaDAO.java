@@ -53,7 +53,7 @@ public class PizzeriaDAO {
 		return (impasto != null) ? impasto : null;
 	}
 
-	public List<Ingrediente> findIngrediente() {
+	public static List<Ingrediente> findIngrediente() {
 		List<Ingrediente> listaResult = new ArrayList<Ingrediente>();
 		EntityManager em = emf.createEntityManager();
 
@@ -82,11 +82,37 @@ public class PizzeriaDAO {
 
 	}
 
+	public static List<Pizza> findPizzaByUser(int id) {
+		EntityManager em = emf.createEntityManager();
+		em.getTransaction().begin();
+
+		Utente utente = em.find(Utente.class, id);
+
+		if (utente.equals(null))
+			return null;
+
+		List<Pizza> listaResult = utente.getPizze();
+		em.getTransaction().commit();
+		em.close();
+
+		return listaResult.isEmpty() ? null : listaResult;
+	}
+
+	public static Pizza findPizzaById(int id_pizza) {
+		EntityManager em = emf.createEntityManager();
+		em.getTransaction().begin();
+
+		Pizza pizza = em.find(Pizza.class, id_pizza);
+		em.getTransaction().commit();
+		em.close();
+		
+		return (pizza != null) ? pizza : null;
+	}
+	
 	// Salva la pizza creata dall'utente
 	public void savePizza(Pizza pizza, Utente utente) {
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
-
 		em.persist(pizza);
 
 		utente.getPizze().add(pizza);
@@ -95,6 +121,32 @@ public class PizzeriaDAO {
 		em.close();
 	}
 
+	// Salva la pizza in fase di update
+	public void savePizza(String nomePizza, Utente utente, int impastoId, String[] ingredientiId) {
+		EntityManager em = emf.createEntityManager();
+		em.getTransaction().begin();
+		Impasto impasto = em.find(Impasto.class, impastoId);
+		List<Ingrediente> ingredientiList = new ArrayList<Ingrediente>();
+
+		for (String idString : ingredientiId) {
+			Ingrediente ingrediente = em.find(Ingrediente.class, Integer.valueOf(idString));
+			ingredientiList.add(ingrediente);
+		}
+
+		Pizza pizza = new Pizza();
+		pizza.setNome(nomePizza);
+		pizza.setImpasto(impasto);
+		pizza.setIngredienti(ingredientiList);
+		pizza.setUtente(utente);
+
+		em.persist(pizza);
+
+		utente.getPizze().add(pizza);
+		em.flush(); // force the data to be persisted in the database immediately
+		em.getTransaction().commit();
+		em.close();
+	}
+	
 	// Cancella una pizza in rubrica
 	public void deletePizza(int id, Utente utente) {
 		EntityManager em = emf.createEntityManager();
@@ -115,57 +167,6 @@ public class PizzeriaDAO {
 		em.getTransaction().begin();
 		em.merge(pizza);
 		em.flush();
-		em.getTransaction().commit();
-		em.close();
-	}
-
-	public List<Pizza> findPizzaByUser(int id) {
-		EntityManager em = emf.createEntityManager();
-		em.getTransaction().begin();
-
-		Utente utente = em.find(Utente.class, id);
-
-		if (utente.equals(null))
-			return null;
-
-		List<Pizza> listaResult = utente.getPizze();
-		em.getTransaction().commit();
-		em.close();
-
-		return listaResult.isEmpty() ? null : listaResult;
-	}
-
-	public Pizza findPizzaById(int id_pizza) {
-		EntityManager em = emf.createEntityManager();
-		em.getTransaction().begin();
-
-		Pizza pizza = em.find(Pizza.class, id_pizza);
-		em.getTransaction().commit();
-		em.close();
-		return (pizza != null) ? pizza : null;
-	}
-
-	public void savePizza(String nomePizza, Utente utente, int impastoId, String[] ingredientiId) {
-		EntityManager em = emf.createEntityManager();
-		em.getTransaction().begin();
-		Impasto impasto = em.find(Impasto.class, impastoId);
-		List<Ingrediente> ingredientiList = new ArrayList();
-
-		for (String idString : ingredientiId) {
-			Ingrediente ingrediente = em.find(Ingrediente.class, Integer.valueOf(idString));
-			ingredientiList.add(ingrediente);
-		}
-
-		Pizza pizza = new Pizza();
-		pizza.setNome(nomePizza);
-		pizza.setImpasto(impasto);
-		pizza.setIngredienti(ingredientiList);
-		pizza.setUtente(utente);
-
-		em.persist(pizza);
-
-		utente.getPizze().add(pizza);
-		em.flush(); // force the data to be persisted in the database immediately
 		em.getTransaction().commit();
 		em.close();
 	}

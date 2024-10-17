@@ -19,6 +19,12 @@ public class Ingrediente {
 	@Column(name = "nome")
 	private String nome;
 
+	public Ingrediente() {}
+	
+	public Ingrediente(String nome) {
+		this.nome = nome;
+	}
+
 	public int getId() {
 		return id;
 	}
