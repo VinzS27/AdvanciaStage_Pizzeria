@@ -1,4 +1,4 @@
-<h1 align="center" id="title">Pizzeria: First Step</h1>
+<h1 align="center" id="title">Pizzeria</h1>
 
 <h2>Technologies Used</h2>
 <p id="description"><b>JPA:</b> Used for managing data persistence.</p>
