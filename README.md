@@ -5,3 +5,4 @@
 <p id="description"><b>Hibernate Panache:</b> Hibernate Panache simplifies data access and ORM management.</p>
 <p id="description"><b>PostgreSQL:</b> open-source relational database.</p>
 <p id="description"><b>Docker:</b> containerized with Docker for easier deployment and scalability.</p>
+<p id="description"><b>REST: </b> The RESTful APIs using Quarkus.</p>
