@@ -6,3 +6,8 @@
 <p id="description"><b>PostgreSQL:</b> open-source relational database.</p>
 <p id="description"><b>Docker:</b> containerized with Docker for easier deployment and scalability.</p>
 <p id="description"><b>REST: </b> The RESTful APIs using Quarkus.</p>
+
+<h2>Requirements</h2>
+<p id="description"><b>Java 17</b></p>
+<p id="description"><b>Maven</b></p>
+<p id="description"><b>PostgreSQL</b></p>
