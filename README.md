@@ -1,4 +1,4 @@
-<h1 align="center" id="title">Pizzeria: Second Step</h1>
+<h1 align="center" id="title">Pizzeria: REST & SOAP</h1>
 
 <h2>Technologies Used</h2>
 <p id="description"><b>REST:</b> Used to expose RESTful APIs.</p>
