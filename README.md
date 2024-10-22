@@ -11,7 +11,7 @@
 <p id="description"><b>POST:</b> /api/auth/login : copy the barer token (ey..) for authorization.</p>
 <p id="description"><b>GET:</b> /api/impasto.</p>
 
-Requirements
+<h2>Requirements</h2>
 <p id="description"><b>Java 11</b></p>
 <p id="description"><b>Maven</b></p>
 <p id="description"><b>MySQL Workbench</b></p>
