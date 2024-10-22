@@ -12,6 +12,6 @@
 <p id="description"><b>GET:</b> /api/impasto.</p>
 
 Requirements
-Java 11
-Maven
-MySQL Workbench
+<p id="description"><b>Java 11</b></p>
+<p id="description"><b>Maven</b></p>
+<p id="description"><b>MySQL Workbench</b></p>
