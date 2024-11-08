@@ -1,4 +1,4 @@
-<h1 align="center" id="title">Pizzeria: Spring & JWT Backend</h1>
+<h1 align="center" id="title">Pizzeria: Spring & JWT BE</h1>
 
 <h2>Technologies Used</h2>
 <p id="description"><b>Spring Boot:</b> Provides a streamlined approach for application configuration and deployment.</p>
